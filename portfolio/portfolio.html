@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+        }
+        section {
+            padding: 50px;
+        }
+        .portfolio {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .portfolio img {
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .portfolio img:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 10px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+    </header>
+    
+    <section>
+        <h2>About Me</h2>
+        <p>A highly motivated and results-driven B.Tech (AI/ML) student with a strong foundation in web development. Skilled in HTML, CSS, JavaScript, Python, and Java. Seeking to leverage my technical expertise, problem-solving abilities, and passion for continuous learning to contribute to a dynamic and innovative team. . Looking for opportunities to contribute to organizational success while expanding my skills in a fast-paced tech environment.</p>
+    </section>
+    
+    <section>
+        <h2>Projects</h2>
+        <div class="portfolio">
+            <img src="img 1.jpg" alt="Project 1" onclick="showAlert('Project 1')">
+            <img src="img 2.png" alt="Project 2" onclick="showAlert('Project 2')">
+            <img src="img 3.png" alt="Project 3" onclick="showAlert('Project 3')">
+        </div>
+    </section>
+    
+    <section>
+        <h2>Contact</h2>
+        <p>Email: sahanamuba2004@gmail.com</p>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <p id="formResponse"></p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showAlert(projectName) {
+            alert('You clicked on ' + projectName);
+        }
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+            
+            if (name && email && message) {
+                document.getElementById("formResponse").innerText = "Thank you, " + name + "! Your message has been sent.";
+                document.getElementById("contactForm").reset();
+            } else {
+                document.getElementById("formResponse").innerText = "Please fill out all fields.";
+            }
+        });
+    </script>
+</body>
+</html>
